@@ -1,0 +1,17 @@
+[Nonterminals]
+S
+END
+
+[Terminals]
+a
+b
+END
+
+[PR]
+S => a+S+b
+S => e
+END
+
+[Start]
+S
+END
