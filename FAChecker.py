@@ -215,3 +215,4 @@ def pda_checker(filename):
                 if x[4] != y[4]:
                     print(f"There are two conflicting rules(Rule {i+1} and Rule {j+i+2})")
                     return 0
+    return 1
