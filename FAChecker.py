@@ -182,4 +182,36 @@ def pda_checker(filename):
     if len(pdaS) > 1:
         print("Too many elements in the start section")
         return 0
+    #Verifica daca este vreo sectiune goala
+    if len(pdaS) == 0:
+        print("Start section is empty")
+        return 0
+    if len(pdaStates) == 0:
+        print("States section is empty")
+        return 0
+    if len(pdaEnd) == 0:
+        print("End section is empty")
+        return 0
+    if len(pdaInput) == 0:
+        print("Input section is empty")
+        return 0
+    if len(pdaTransitions) == 0:
+        print("Transitions section is empty")
+        return 0
     
+    #Verifica daca exista elementul de start
+    if pdaS[0] not in pdaStates:
+        print(f"Element {pdaS[0]} doesn't exist in states section")
+    
+    #Verifica daca exista elementele din sectiunea end in sectiunea de stari
+    for x in pdaEnd:
+        if x not in pdaStates:
+            print(f"Element {x} doesn't exist in states section")
+
+    #Verifica daca sunt doua reguli care sunt in conflict
+    for i,x in enumerate(pdaTransitions):
+        for j,y in enumerate(pdaTransitions[i+1::]):
+            if x[0] == y[0] and x[1] == y[1] and x[2] == y[2] and x[3] == y[3]:
+                if x[4] != y[4]:
+                    print(f"There are two conflicting rules(Rule {i+1} and Rule {j+i+2})")
+                    return 0
