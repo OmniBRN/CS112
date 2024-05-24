@@ -1,5 +1,6 @@
 [Nonterminals]
 S
+T
 END
 
 [Terminals]
@@ -9,6 +10,10 @@ END
 
 [PR]
 S => a+S+b
+S => a+b+S
+S => a+T
+T => b+b+T
+T => e
 S => e
 END
 

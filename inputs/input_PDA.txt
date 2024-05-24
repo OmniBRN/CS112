@@ -1,0 +1,33 @@
+[States]
+q1
+q2
+q3
+q4
+END
+
+[Input]
+0
+1
+END
+
+[Stack]
+0
+$
+END
+
+[Transitions]
+q1 e q2 e $
+q2 0 q2 e 0
+q2 1 q3 0 e
+q3 1 q3 0 e
+q3 e q4 $ e
+END
+
+[Start]
+q1
+END
+
+[End]
+q1
+q4
+END
